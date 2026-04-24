@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: order-container
-        image: YOUR-DOCKERHUB-USERNAME/order-service:v1
+        image: adithyaganesh640/order-service:v1
         ports:
         - containerPort: 3000
         env:

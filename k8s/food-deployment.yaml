@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: food-container
-        image: YOUR-DOCKERHUB-USERNAME/food-service:v1
+        image: adithyaganesh640/food-service:v1
         ports:
         - containerPort: 3000
         env:

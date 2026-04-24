@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: auth-container
-        image: YOUR-DOCKERHUB-USERNAME/auth-service:v1
+        image: adithyaganesh640/auth-service:v1
         ports:
         - containerPort: 3000
         env:
