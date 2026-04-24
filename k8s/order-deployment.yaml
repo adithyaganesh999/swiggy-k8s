@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: order
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+      - name: order-container
+        image: YOUR-DOCKERHUB-USERNAME/order-service:v1
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        - name: APP_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: swiggy-config
+              key: APP_ENV
+        - name: API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: swiggy-config
+              key: API_URL
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: swiggy-secret
+              key: DB_PASSWORD
